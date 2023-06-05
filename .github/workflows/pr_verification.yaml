@@ -1,0 +1,17 @@
+name: Test PR verification
+
+on:
+  pull_request:
+
+
+jobs:
+  init:
+    name: Init
+    container:
+      image: python:3.11
+    steps:
+      - name: Setup jq & awscli
+        run: |
+          apt update
+          apt install -y jq 
+          pip install awscli
