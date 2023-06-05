@@ -12,6 +12,4 @@ jobs:
     steps:
       - name: Setup jq & awscli
         run: |
-          apt update
-          apt install -y jq 
-          pip install awscli
+          exit 1
