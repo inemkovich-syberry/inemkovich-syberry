@@ -1,17 +1,17 @@
-name: PR verification
+name: Test PR verification
 
 on:
   pull_request:
     paths:
-      - README.md
+      - test/*
 
 jobs:
-  init:
-    name: Init
+  test:
+    name: Test
     runs-on: ubuntu-latest
     container:
       image: python:3.11
     steps:
       - name: Setup jq & awscli
         run: |
-          cat README.md
+          cat ./test/test.md
