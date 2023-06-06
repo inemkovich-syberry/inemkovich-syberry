@@ -2,7 +2,7 @@
 
 - 👀 I’m interested in DevOps and backend development
 - 🌱 I’m currently learning golang
-
+- 🚴🏻 Love cycling
 
 <!-- 
 inemkovich-syberry/inemkovich-syberry is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
