@@ -12,6 +12,9 @@ jobs:
     container:
       image: python:3.11
     steps:
-      - name: Setup jq & awscli
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: test step
         run: |
           cat ./test/test.md
