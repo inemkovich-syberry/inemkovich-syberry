@@ -5,7 +5,7 @@ on:
         type: string
         required: true
 
-jobs:  
+jobs:
   build:
     runs-on: ubuntu-latest
     container:
