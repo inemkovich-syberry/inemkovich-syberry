@@ -1,9 +1,13 @@
 name: PR verification
 
 on:
-  pull_request:
+  pull_request_target:
+    branches:
+      - 'main'
     paths:
-      - README.md
+      - '*.md'
+      - test/**
+
 
 jobs:
   init:
@@ -11,9 +15,35 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: python:3.11
+    outputs:
+      root: ${{ steps.filter.outputs.root }}
+      test: ${{ steps.filter.outputs.test }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - run: |
-          cat README.md
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            root:
+              - '*.md'
+            test:
+              - 'test/**'
+
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: python:3.11
+    steps:
+      - name: test root-dir
+        if: ${{ needs.init.outputs.root == 'true' }}
+        uses: ./.github/workflows/root_workflow_call.yml
+        with:
+          run_command: cat README.md
+
+      - name: test Test-dir
+        if: ${{ needs.init.outputs.test == 'true' }}
+        uses: ./.github/workflows/test_workflow_call.yml
+        with:
+          run_command: cat ./test/test.md
