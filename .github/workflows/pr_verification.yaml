@@ -42,12 +42,12 @@ jobs:
         
       - name: test root-dir
         if: ${{ needs.init.outputs.root == 'true' }}
-        uses: ./.github/workflows/root_workflow_call.yml
+        uses: ./.github/actions/root_workflow_call
         with:
           run_command: cat README.md
 
       - name: test Test-dir
         if: ${{ needs.init.outputs.test == 'true' }}
-        uses: ./.github/workflows/test_workflow_call.yml
+        uses: ./.github/actions/test_workflow_call
         with:
           run_command: cat ./test/test.md
