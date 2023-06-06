@@ -37,6 +37,9 @@ jobs:
     container:
       image: python:3.11
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
       - name: test root-dir
         if: ${{ needs.init.outputs.root == 'true' }}
         uses: ./.github/workflows/root_workflow_call.yml

@@ -2,3 +2,4 @@
 
 - 👀 I’m interested in DevOps and backend development
 - 🌱 I’m currently learning golang
+- 🚴🏻 I'm love cycling
