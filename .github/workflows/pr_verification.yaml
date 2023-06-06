@@ -32,6 +32,7 @@ jobs:
               - 'test/**'
 
   test:
+    needs: init
     runs-on: ubuntu-latest
     container:
       image: python:3.11
