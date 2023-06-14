@@ -6,4 +6,6 @@
 
 <!-- comment
   another line 
-  comment -->
+  comment 
+  bla bla 
+another commit -->
